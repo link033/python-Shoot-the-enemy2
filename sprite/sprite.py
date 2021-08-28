@@ -8,7 +8,7 @@ class sprite:
         self.eventxy=[0,0]
 
     def loop(self):
-        self.xy=self.canvas.coords(self.items[0])
+        self.xy=self.canvas.coords(self.items[0])#調整方向
         if self.ur==1:
             self.canvas.delete(self.items[1])
             self.x=(self.xy[0]+self.xy[2])//2
@@ -25,6 +25,10 @@ class sprite:
             self.canvas.delete(self.items[1])
             self.y=(self.xy[1]+self.xy[3])//2
             self.items[1]=self.canvas.create_rectangle(self.xy[0]-30,self.y-10,self.xy[0],self.y+10,fill='blue')
+
+        self.x=self.eventxy[0]-(self.xy[0]+self.xy[2])//2
+        self.y=self.eventxy[1]-(self.xy[1]+self.xy[3])//2
+        self.canvas.move(self.items[0],self.x,self.y)
 
     def button3(self,event):
         self.ur+=1
