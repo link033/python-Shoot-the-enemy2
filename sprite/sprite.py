@@ -12,13 +12,19 @@ class sprite:
         if self.ur==1:
             self.canvas.delete(self.items[1])
             self.x=(self.xy[0]+self.xy[2])//2
-            self.canvas.create_rectangle(self.x-10,self.xy[1]-50,self.x+10,self.xy[1],fill='blue')
+            self.items[1]=self.canvas.create_rectangle(self.x-10,self.xy[1]-30,self.x+10,self.xy[1],fill='blue')
         elif self.ur==2 :
-            pass
+            self.canvas.delete(self.items[1])
+            self.y=(self.xy[1]+self.xy[3])//2
+            self.items[1]=self.canvas.create_rectangle(self.xy[2],self.y-10,self.xy[2]+30,self.y+10,fill='blue')
         elif self.ur==3:
-            pass
+            self.canvas.delete(self.items[1])
+            self.x=(self.xy[0]+self.xy[2])//2
+            self.items[1]=self.canvas.create_rectangle(self.x-10,self.xy[3],self.x+10,self.xy[3]+30,fill='blue')
         else: 
-            pass
+            self.canvas.delete(self.items[1])
+            self.y=(self.xy[1]+self.xy[3])//2
+            self.items[1]=self.canvas.create_rectangle(self.xy[0]-30,self.y-10,self.xy[0],self.y+10,fill='blue')
 
     def button3(self,event):
         self.ur+=1
