@@ -1,3 +1,5 @@
+from sprite.si import sprite_si
+
 class sprite:
     def __init__(self,canvas):
         self.canvas=canvas
@@ -5,7 +7,9 @@ class sprite:
         self.items=[self.canvas.create_rectangle(30,30,80,80,fill='blue'),self.canvas.create_rectangle(45,-20,65,30)]
         self.canvas.bind('<Button-3>',self.button3)
         self.canvas.bind('<Motion>',self.mot)
+        self.canvas.bind('<Button-1>',self.button1)
         self.eventxy=[0,0]
+        self.si=sprite_si(self.canvas)
 
     def loop(self):
         self.xy=self.canvas.coords(self.items[0])#調整方向
@@ -30,6 +34,8 @@ class sprite:
         self.y=self.eventxy[1]-(self.xy[1]+self.xy[3])//2
         self.canvas.move(self.items[0],self.x,self.y)
 
+        self.si.loop(2)    
+
     def button3(self,event):
         self.ur+=1
         if self.ur>4:
@@ -37,3 +43,9 @@ class sprite:
 
     def mot(self,event):
         self.eventxy=[event.x,event.y]
+
+    def button1(self,event):
+        self.xy=self.canvas.coords(self.items[1])
+        if self.ur==1:
+            self.x=(self.xy[0]+self.xy[2])//2
+            self.si.si([self.x-5,self.xy[1],self.x+5,self.xy[1]-20],self.ur)
