@@ -57,4 +57,4 @@ class sprite:
             self.si.si([self.x-5,self.xy[3],self.x+5,self.xy[3]+20],self.ur)
         else:
             self.y=(self.xy[1]+self.xy[3])//2
-            self.si.si([self.xy[1]-50,self.y-5,self.xy[1],self.y+5],self.ur)
+            self.si.si([self.xy[0]-50,self.y-5,self.xy[0],self.y+5],self.ur)
