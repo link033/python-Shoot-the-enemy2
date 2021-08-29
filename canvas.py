@@ -1,5 +1,6 @@
 from tkinter import*
 from sprite.sprite import sprite
+from evemy.mobs.mob1 import mob1
 import time
 
 class canvas(Canvas):
@@ -17,6 +18,7 @@ class canvas(Canvas):
     
     def setp(self):
         self.sprite=sprite(self)
+        self.mob1=mob1(self)
 
     def loop(self):
         self.sprite.loop()
