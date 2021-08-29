@@ -48,4 +48,13 @@ class sprite:
         self.xy=self.canvas.coords(self.items[1])
         if self.ur==1:
             self.x=(self.xy[0]+self.xy[2])//2
-            self.si.si([self.x-5,self.xy[1],self.x+5,self.xy[1]-20],self.ur)
+            self.si.si([self.x-5,self.xy[1]-20,self.x+5,self.xy[1]],self.ur)
+        elif self.ur==2:
+            self.y=(self.xy[1]+self.xy[3])//2
+            self.si.si([self.xy[2],self.y-5,self.xy[2]+50,self.y+5],self.ur)
+        elif self.ur==3:
+            self.x=(self.xy[0]+self.xy[2])//2
+            self.si.si([self.x-5,self.xy[3],self.x+5,self.xy[3]+20],self.ur)
+        else:
+            self.y=(self.xy[1]+self.xy[3])//2
+            self.si.si([self.xy[1]-50,self.y-5,self.xy[1],self.y+5],self.ur)
