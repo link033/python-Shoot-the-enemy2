@@ -19,6 +19,12 @@ class canvas(Canvas):
     def setp(self):
         self.sprite=sprite(self)
         self.mob1=mob1(self)
+        self.dk=0
 
     def loop(self):
         self.sprite.loop()
+        self.dk+=1
+        if self.dk>100:
+            self.dk=0
+            self.mob1.ud()
+        self.mob1.loop()
